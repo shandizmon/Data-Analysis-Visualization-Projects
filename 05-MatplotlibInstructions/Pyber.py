@@ -37,7 +37,7 @@ df_city_rides['City Type'] = combined_ride_city.groupby('city')['type'].max()
 df_city_rides.head()
 
 
-# In[20]:
+# In[4]:
 
 
 #Build bubble plots for each city type
@@ -70,11 +70,11 @@ plt.grid()
 plt.title("Pyber Ride Sharing Data (2016)")
 plt.xlabel("Total Number of Rides Per City")
 plt.ylabel("Average Fare ($) Per City")
-plt.xlim (0,45)
-plt.ylim (0,40)
+plt.xlim (0,40)
+plt.ylim (15,45)
 
 note = ("Note: Size of bubble indicates number of drivers in city")
-plt.text (15, -7, note, wrap = True)
+plt.text (13,10, note, wrap = True)
 
 lgnd=plt.legend(loc="upper right", title="City Types", scatterpoints=1)
 lgnd.legendHandles[0]._sizes = [50]
@@ -133,7 +133,7 @@ plt.axis("equal")
 plt.show()
 
 
-# In[38]:
+# In[9]:
 
 
 # Calculate the total drivers by city type
@@ -141,14 +141,14 @@ df_drivers_per_type = pd.DataFrame(df_city_rides.groupby('City Type')['Total Num
 df_drivers_per_type
 
 
-# In[39]:
+# In[10]:
 
 
 # Create a pie chart based upon Total Drivers
 explode = [0.1,0,0]
 colors = ["Gold", "lightskyblue", "lightcoral"]
 
-plt.pie(df_drivers_per_type['Total Number of Drivers Per City'], explode=explode, labels=df_total_drivers_type.index, colors=colors,
+plt.pie(df_drivers_per_type['Total Number of Drivers Per City'], explode=explode, labels=df_drivers_per_type.index, colors=colors,
         autopct='{:.1f}%'.format, shadow=True, startangle=140)
 plt.title("% of Total Drivers by City Type")
 plt.axis("equal")
