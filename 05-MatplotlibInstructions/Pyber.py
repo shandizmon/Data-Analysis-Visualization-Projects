@@ -1,6 +1,11 @@
 
 # coding: utf-8
 
+# # Analysis:
+# Observed Trend 1 : Rural areas have the largest variance in terms of average fare and on average the fare in rural areas is higher.
+# Observed Trend 2 : Urban areas have the most number of rides, most number of drivers and lowest fare compared to suburban and rural areas.
+# Observed Trend 3: On average there are more rides per driver in rural and suburban areas and the fare is higher, so it looks like driving in those areas is more protitable than driving in the urban areas. However, miles traveled per ride is another factor that increases fuel and other costs and is not considered in this analysis.
+
 # In[1]:
 
 
@@ -59,7 +64,7 @@ plt.scatter(urban_city_rides, urban_average_fare, color="lightcoral", edgecolor=
             , label="Urban", alpha=0.5, s=round(20*urban_city_drivers, 0), linewidths=1)
 
 plt.scatter(suburban_city_rides, suburban_average_fare, color="lightskyblue", edgecolor="black"
-            , label="Subrban", alpha=0.5, s=round(20*suburban_city_drivers, 0), linewidths=1)
+            , label="Suburban", alpha=0.5, s=round(20*suburban_city_drivers, 0), linewidths=1)
 
 plt.scatter(rural_city_rides, rural_average_fare, color="gold", edgecolor="black"
             ,label="Rural", alpha=0.5, s=round(20*rural_city_drivers, 0), linewidths=1)
@@ -139,6 +144,8 @@ plt.show()
 # Calculate the total drivers by city type
 df_drivers_per_type = pd.DataFrame(df_city_rides.groupby('City Type')['Total Number of Drivers Per City'].sum())
 df_drivers_per_type
+#ratio = df_total_rides_type['ride_id']/df_drivers_per_type['Total Number of Drivers Per City']
+#ratio
 
 
 # In[10]:
