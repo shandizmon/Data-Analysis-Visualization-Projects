@@ -3,11 +3,14 @@
 
 # # Analysis
 # 
-# ### Observed Trend 1:  The Sentiment Analysis of Media Tweets shows the valum and the polarity of the last 100 tweets sent out by the following news organizations: **BBC, CBS, CNN, Fox, and New York times**. Running Sentiment Analysis on the tweets shows the overall polarity is positive or neutral.
+# ### Observed Trend 1:  
+# The Sentiment Analysis of Media Tweets shows the volume and the polarity of the last 100 tweets sent out by the following news organizations: **BBC, CBS, CNN, Fox, and New York times**. Running Sentiment Analysis on the tweets shows the overall polarity is mostly positive or neutral.
 # 
-# ### Observed Trend 2: The Overall Media Sentiment chart shows there is a significant diffrence for Polarity of tweets between CBS,  Fox, and BBC media which have the highest number of positive tweets and CNN and New York Times which have the highest number of negative tweets.
+# ### Observed Trend 2: 
+# Looks like tweets from all news agencies have a distribution of positive, negative, and neutral polarity, and there is no trend in time.
 # 
-# ### Observed Trend 3: CNN and New York Times tweets carry the lowest percentage of positive Tweets and highest percentage of negative tweets.
+# ### Observed Trend 3: 
+# The number of the tweets from CBS, Fox and BBC that carry a positive sentiment is significantly higher than that of the rest of the news agencies and on avarage tweets from CNN and New York Times carry a negative sentiment
 
 # In[1]:
 
@@ -136,10 +139,8 @@ compound_sum = tweet_data.groupby('Media')['Compound'].sum()
 plt.figure(figsize= (15,10))
 sentiment_chart = compound_sum.plot(kind="bar", width=1, alpha=0.5)
 
-# for Media in compound_sum:
-#      height = Media.get_height()
-#      ax.text(Media.get_x() + Media.get_width()/ 2, height + 5,
-#      ha='center', va='bottom')
+for i, v in enumerate(compound_sum):
+    sentiment_chart.text(i, v+.5, round(v,2), color='black', fontweight='bold', ha='center',va='bottom')
 
 plt.title("Overall Media Sentiment based on Twitter")
 plt.ylabel("Tweet Polarity")
