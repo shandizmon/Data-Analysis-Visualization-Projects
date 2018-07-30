@@ -19,7 +19,7 @@ from random import uniform
 # In[2]:
 
 
-# Read CSV
+# Read CSV file
 measurements = pd.read_csv("Resources/hawaii_measurements.csv")
 stations = pd.read_csv("Resources/hawaii_stations.csv")
 
@@ -42,5 +42,5 @@ clean_measurements = measurements[np.isfinite(measurements['prcp'])]
 
 
 # Write the dataframe to CSV file
-clean_measurements.to_csv('Resources/clean_measurements.csv', sep='\t')
+clean_measurements.to_csv('Resources/clean_measurements.csv', sep=',')
 

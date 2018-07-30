@@ -11,6 +11,8 @@ import requests
 import pandas as pd
 import json
 import matplotlib.pyplot as plt
+import numpy as np
+import datetime as dt
 import seaborn as sns
 from pprint import pprint
 from citipy import citipy
@@ -29,16 +31,16 @@ import pymysql
 pymysql.install_as_MySQLdb()
 
 
-# In[8]:
+# In[ ]:
 
 
-# Read CSV
+# Read CSV cleaned files
 clean_measurements = pd.read_csv("Resources/clean_measurements.csv")
 clean_stations = pd.read_csv("Resources/hawaii_stations.csv")
 clean_measurements.head()
 
 
-# In[3]:
+# In[ ]:
 
 
 # Sets an object to utilize the default declarative base in SQL Alchemy
@@ -63,7 +65,7 @@ class Station(Base):
     elevation = Column(Float)
 
 
-# In[4]:
+# In[ ]:
 
 
 # Create Database Connection
@@ -83,7 +85,7 @@ from sqlalchemy.orm import Session
 session = Session(bind=engine)
 
 
-# In[9]:
+# In[ ]:
 
 
 # Add Records to the Appropriate DB
@@ -95,7 +97,7 @@ for index, row in clean_measurements.iterrows():
     session.commit()
 
 
-# In[6]:
+# In[ ]:
 
 
 # Add Records to the Appropriate DB
@@ -107,37 +109,20 @@ for index, row in clean_stations.iterrows():
     session.commit()
 
 
-# In[10]:
+# In[ ]:
 
 
+# Query the Station table to check if it's working
 station_list = session.query(Station)
 for station in station_list:
     print(station.name)
 
 
-# In[11]:
+# In[ ]:
 
 
-# Query the Tables
-# ----------------------------------
-# Perform a simple query of the database
-
+# Query the Measurement table to check if it's working
 measurement_list = session.query(Measurement)
 for measure in measurement_list:
     print(measure.station)
-
-
-# In[12]:
-
-
-result = (session
-          .query(Measurement)
-          .count())
-result
-
-
-# In[14]:
-
-
-clean_measurements.count()
 
