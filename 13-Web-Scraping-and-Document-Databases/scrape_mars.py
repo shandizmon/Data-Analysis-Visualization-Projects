@@ -95,7 +95,7 @@ def scrape():
     
     # Insert dictionary into MongoDB
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-    mydb = myclient["test"]
+    mydb = myclient["marsdb"]
     mycol = mydb["mars"]
 
     # Code to insert a new row
