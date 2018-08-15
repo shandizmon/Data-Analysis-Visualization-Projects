@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>UFO Sightings</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <form>
+            <div class="form-inline">
+              <label for="ufo-form">Filter UFO Sightings by Date: </label>
+              <input class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" name="ufo-form" type="text" placeholder="mm/dd/yyyy - ex. 1/6/2010">
+            <button id="submit" type="submit" class="btn btn-primary">Find Incidents</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <table class ="table">
+            <thead>
+              <tr>
+                <th>Date/Time</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Shape</th>
+                <th>Duration (Mins)</th>
+                <th>Comments</th>
+              </tr>
+            </thead>
+            <tbody id="ufo"></tbody>
+          </table>
+        </div>
+      </div>
+</body>
+<script src="js/data.js"></script>
+<script src="js/index.js"></script>
+
+</html>
