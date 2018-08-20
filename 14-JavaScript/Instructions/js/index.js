@@ -32,6 +32,26 @@ submit.on("click", function() {
   });
 });
 
+  // Select the input element and get the raw HTML node
+  var inputElement = d3.select("#inlineFormInput");
+
+  // Get the value property of the input element
+  var inputValue = "1/1/2010";
+
+  console.log(inputValue);
+
+  var filteredData = dataSet.filter(incident => incident.datetime === inputValue);
+
+  console.log(filteredData);
+  $("#ufo").empty();
+  filteredData.forEach((ufoReport) => {
+    var row = tbody.append("tr");
+    Object.entries(ufoReport).forEach(([key, value]) => {
+      var cell = tbody.append("td");
+      cell.text(value);
+    });
+  });
+
 // BONUS: Refactor to use Arrow Functions!
 
 
