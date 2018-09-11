@@ -7,6 +7,7 @@ var submit = d3.select("#submit");
 
 submit.on("click", function() {
 
+  tbody.html("")
   // Prevent the page from refreshing
   
   d3.event.preventDefault();
@@ -22,7 +23,7 @@ submit.on("click", function() {
   var filteredData = dataSet.filter(incident => incident.datetime === inputValue);
 
   console.log(filteredData);
-  $("#ufo").empty();
+  // $("#ufo").empty();
   filteredData.forEach((ufoReport) => {
     var row = tbody.append("tr");
     Object.entries(ufoReport).forEach(([key, value]) => {
@@ -43,7 +44,7 @@ submit.on("click", function() {
   var filteredData = dataSet.filter(incident => incident.datetime === inputValue);
 
   console.log(filteredData);
-  $("#ufo").empty();
+  // $("#ufo").empty();
   filteredData.forEach((ufoReport) => {
     var row = tbody.append("tr");
     Object.entries(ufoReport).forEach(([key, value]) => {

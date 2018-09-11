@@ -1,0 +1,43 @@
+<!D  OCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Earthquakes last 7 days</title>
+
+    <!-- Leaflet bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
+
+
+    <!-- d3 JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+
+
+    <!-- the CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+ 
+
+
+
+  <body>
+    
+    <!-- The div where we will inject the map -->
+    <div class="container">
+                <h2>Earthquake Map in the Last 7 Days</h2>
+          </div>
+      <!-- The div for the map -->
+    <div class="col-md-1"> </div>
+    <div class="col-md-10" id="map"></div>
+    <div class="col-md-1"> </div>
+  
+    <!-- the JS -->
+    <script type="text/javascript" src="logic.js"></script>
+  </body>
+</html>
