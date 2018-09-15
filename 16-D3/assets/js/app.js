@@ -26,21 +26,21 @@ var chart = svg.append("g")
 d3.csv("assets/data/data.csv", function(err, healthdata) {
   if (err) throw err;
  
-  console.log(healthdata);
+  // console.log(healthdata);
 
  // Step 1: Parse Data/Cast as numbers
  healthdata.forEach(function(d) {
     d.poverty = +d.poverty;
-    d.healthcare= +d.healthcare;   
+    d.healthcare= +d.healthcare;  
   });
-  
+
 // Step 2: Create scale functions
 var xLinearScale = d3.scaleLinear()
-  .domain([20, d3.min(healthdata, d => d.poverty)-0.5, d3.max(healthdata, d => d.poverty)+0.5])
+  .domain([d3.min(healthdata, d => d.poverty)-0.5, d3.max(healthdata, d => d.poverty)+0.5, 30])
   .range([0, width]);
 
 var yLinearScale = d3.scaleLinear()
-  .domain([0, d3.min(healthdata, d => d.healthcare)-1, d3.max(healthdata, d => d.healthcare)+1.1])
+  .domain([d3.min(healthdata, d => d.healthcare)-1, d3.max(healthdata, d => d.healthcare)+1.1])
   .range([height, 0]);
   
 // Create axis functions
@@ -101,8 +101,6 @@ cTip.on("mouseover", function(d) {
   });
 
 
-
-  
 
 	// //Append the bottom axis.
 	// chart.append("g")
